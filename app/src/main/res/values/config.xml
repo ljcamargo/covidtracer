@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="supported_code_formats">
+        <item>QR_CODE</item>
+    </string-array>
+    <string name="manual_code_regex">/[a-zA-Z]+/g</string>
+</resources>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="tech.camargo.covid.viewmodels.ResultViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ResultActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/clear">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="@color/clear"
+                app:expandedTitleGravity="bottom|center_horizontal"
+                app:expandedTitleMarginStart="@dimen/double_space"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_collapseMode="parallax">
+
+                    <RelativeLayout
+                        android:id="@+id/toolbar_background"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintDimensionRatio="4:3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="@android:color/transparent">
+
+                        <LinearLayout
+                            android:visibility="@{(viewModel.status.success &amp;&amp; !viewModel.wait) ? View.VISIBLE:View.GONE}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/success"/>
+
+                        <LinearLayout
+                            android:visibility="@{(!viewModel.status.success &amp;&amp; !viewModel.wait) ? View.VISIBLE:View.GONE}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/error"/>
+
+                        <ImageView
+                            android:visibility="@{(viewModel.status.success &amp;&amp; !viewModel.wait) ? View.VISIBLE:View.GONE}"
+                            android:layout_width="@dimen/icon"
+                            android:layout_height="@dimen/icon"
+                            android:layout_centerInParent="true"
+                            app:layout_collapseMode="parallax"
+                            android:src="@drawable/success"/>
+
+                        <ImageView
+                            android:visibility="@{(!viewModel.status.success &amp;&amp; !viewModel.wait) ? View.VISIBLE:View.GONE}"
+                            android:layout_width="@dimen/icon"
+                            android:layout_height="@dimen/icon"
+                            android:layout_centerInParent="true"
+                            app:layout_collapseMode="parallax"
+                            android:src="@drawable/error"/>
+
+                        <ProgressBar
+                            android:id="@+id/progress"
+                            android:visibility="@{viewModel.wait? View.VISIBLE:View.GONE}"
+                            tools:visibility="visible"
+                            android:layout_width="@dimen/icon"
+                            android:layout_height="@dimen/icon"
+                            android:layout_centerInParent="true"
+                            android:indeterminate="true"
+                            style="?android:attr/progressBarStyleLarge"
+                            app:layout_collapseMode="parallax"/>
+
+                    </RelativeLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    app:theme="@style/ToolbarSolid"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
+                    app:layout_collapseMode="pin"/>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/clear"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/double_space">
+
+                <TextView
+                    android:visibility="@{(viewModel.status.success &amp;&amp; !viewModel.wait) ? View.VISIBLE:View.GONE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space"
+                    style="@style/title"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:textColor="@color/scrim_success"
+                    android:text="@string/done"/>
+
+                <TextView
+                    android:visibility="@{(!viewModel.status.success &amp;&amp; !viewModel.wait) ? View.VISIBLE:View.GONE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space"
+                    style="@style/title"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:textColor="@color/scrim_error"
+                    android:text="@string/error_q"/>
+
+                <TextView
+                    android:visibility="@{(viewModel.status.success &amp;&amp; !viewModel.wait) ? View.VISIBLE:View.GONE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/visit_did_register"/>
+
+                <TextView
+                    android:visibility="@{(!viewModel.status.success &amp;&amp; !viewModel.wait) ? View.VISIBLE:View.GONE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/visit_register_err"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/quad_space"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    tools:text="@tools:sample/lorem"
+                    android:text="@{viewModel.visit.place}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="#222"
+                    tools:text="@tools:sample/lorem"
+                    app:date="@{viewModel.visit.date}"/>
+
+                <LinearLayout
+                    android:visibility="@{viewModel.wait? View.GONE:View.VISIBLE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/quad_space">
+
+                    <Button
+                        android:onClick="restart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/space"
+                        android:text="@string/start_again"/>
+
+                    <Button
+                        android:onClick="recent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/space"
+                        android:text="@string/recent_visits"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="@{viewModel.wait? View.GONE:View.VISIBLE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <Button
+                        android:onClick="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/space"
+                        android:textColor="@color/black"
+                        android:text="@string/exit"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

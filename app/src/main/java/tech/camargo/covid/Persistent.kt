@@ -6,7 +6,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.koin.core.KoinComponent
-import tech.camargo.covid.models.Visit
+import tech.camargo.covid.models.Attendance
 
 class Persistent(context: Context): KoinComponent {
 
@@ -20,7 +20,7 @@ class Persistent(context: Context): KoinComponent {
         get() = storage.getString(CELLPHONES, null)
         set(value) { storage.edit().putString(CELLPHONES, value).apply() }
 
-    var visits: List<Visit>
+    var attendances: List<Attendance>
         get() = Json.decodeFromString(list ?: "[]")
         set(value) { list = Json.encodeToString(value) }
 
@@ -40,8 +40,8 @@ class Persistent(context: Context): KoinComponent {
         get() = cellphones == null
 
 
-    fun addVisit(visit: Visit) {
-        visits = visits + visit
+    fun addVisit(attendance: Attendance) {
+        attendances = attendances + attendance
     }
 
     fun resetList() {

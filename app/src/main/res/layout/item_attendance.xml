@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="visit"
-            type="tech.camargo.covid.models.Visit" />
+            name="attendance"
+            type="tech.camargo.covid.models.Attendance" />
     </data>
 
     <LinearLayout
@@ -24,7 +24,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             tools:text="@tools:sample/lorem"
-            android:text="@{visit.place}"/>
+            android:text="@{attendance.place}"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:textColor="#222"
             android:textSize="16sp"
             tools:text="@tools:sample/lorem"
-            app:date="@{visit.date}"/>
+            app:date="@{attendance.date}"/>
 
     </LinearLayout>
 

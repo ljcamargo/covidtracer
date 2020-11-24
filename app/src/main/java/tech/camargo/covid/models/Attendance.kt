@@ -3,7 +3,7 @@ package tech.camargo.covid.models
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Visit(val date: String) {
+data class Attendance(val date: String) {
     val uuid: String = java.util.UUID.randomUUID().toString()
     var cellphone: String? = null
     var qr: String? = null

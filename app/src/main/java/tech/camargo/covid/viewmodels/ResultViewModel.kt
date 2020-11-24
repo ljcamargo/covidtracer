@@ -9,7 +9,7 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 import tech.camargo.covid.Persistent
 import tech.camargo.covid.models.Status
-import tech.camargo.covid.models.Visit
+import tech.camargo.covid.models.Attendance
 
 class ResultViewModel: ViewModel(), KoinComponent {
 
@@ -17,7 +17,7 @@ class ResultViewModel: ViewModel(), KoinComponent {
     private val viewModelJob = SupervisorJob()
     private val background = CoroutineScope(Dispatchers.Default + viewModelJob)
 
-    val visit = MutableLiveData<Visit>()
+    val attendance = MutableLiveData<Attendance>()
     val status = MutableLiveData<Status>()
     val wait = MutableLiveData<Boolean>()
 
@@ -32,14 +32,14 @@ class ResultViewModel: ViewModel(), KoinComponent {
             wait.postValue(true)
             delay(5000)
             status.postValue(Status(true, 200))
-            val new = Visit(now).apply {
+            val new = Attendance(now).apply {
                 place = "Lorem Ipsum"
                 cellphone = phone
                 this.qr = qr
             }
             persistent.addVisit(new)
             wait.postValue(false)
-            visit.postValue(new)
+            attendance.postValue(new)
         }
     }
 
@@ -49,13 +49,13 @@ class ResultViewModel: ViewModel(), KoinComponent {
             wait.postValue(true)
             delay(5000)
             status.postValue(Status(true, 200))
-            val new = Visit(now).apply {
+            val new = Attendance(now).apply {
                 place = "Lorem Ipsum"
                 this.code = code
             }
             persistent.addVisit(new)
             wait.postValue(false)
-            visit.postValue(new)
+            attendance.postValue(new)
         }
     }
 

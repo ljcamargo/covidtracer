@@ -22,7 +22,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:background="@color/clear"
-            tools:listitem="@layout/item_visit"/>
+            tools:listitem="@layout/item_attendance"/>
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"

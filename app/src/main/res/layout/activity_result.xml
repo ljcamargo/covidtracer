@@ -159,7 +159,7 @@
                     android:textStyle="bold"
                     android:textSize="18sp"
                     tools:text="@tools:sample/lorem"
-                    android:text="@{viewModel.visit.place}"/>
+                    android:text="@{viewModel.attendance.place}"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -167,7 +167,7 @@
                     android:gravity="center"
                     android:textColor="#222"
                     tools:text="@tools:sample/lorem"
-                    app:date="@{viewModel.visit.date}"/>
+                    app:date="@{viewModel.attendance.date}"/>
 
                 <LinearLayout
                     android:visibility="@{viewModel.wait? View.GONE:View.VISIBLE}"

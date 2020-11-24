@@ -36,7 +36,9 @@ class CodeFragment(val callback: ((String?)->Unit)): BottomSheetDialogFragment()
 
     companion object {
         fun create(callback: (String?) -> Unit): CodeFragment {
-            return CodeFragment(callback)
+            return CodeFragment(callback).apply {
+                isCancelable = true
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 package tech.camargo.covid
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,13 +13,21 @@ import org.koin.android.ext.android.inject
 import tech.camargo.covid.databinding.FragmentPhoneBinding
 import tech.camargo.covid.utils.Linter
 
-class PhoneFragment(val callback: ((String?)->Unit)): BottomSheetDialogFragment() {
+class PhoneFragment(
+    val onCancel: () -> Unit,
+    val callback: ((String?) -> Unit)
+): BottomSheetDialogFragment() {
 
     private lateinit var B: FragmentPhoneBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogTheme)
+    }
+
+    override fun onCancel(dialog: DialogInterface) {
+        super.onCancel(dialog)
+        onCancel()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
@@ -38,8 +47,10 @@ class PhoneFragment(val callback: ((String?)->Unit)): BottomSheetDialogFragment(
 
     companion object {
         const val TAG = "PhoneFragment"
-        fun create(callback: (String?) -> Unit): PhoneFragment {
-            return PhoneFragment(callback)
+        fun create(cancel: ()->Unit, callback: (String?) -> Unit): PhoneFragment {
+            return PhoneFragment(cancel, callback).apply {
+                isCancelable = true
+            }
         }
     }
 

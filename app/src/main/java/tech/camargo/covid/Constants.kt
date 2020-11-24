@@ -35,7 +35,7 @@ class Constants(val context: Context): KoinComponent {
     }
 
     private fun Resources.getStringById(name: String): String? {
-        val id = this.getIdentifier(name, "String", context.packageName)
+        val id = this.getIdentifier(name, "string", context.packageName)
         return if (id > 0) {
             this.getString(id)
         } else {

@@ -9,23 +9,31 @@
         android:layout_height="match_parent"
         tools:context=".ListActivity">
 
-        <WebView
-            android:id="@+id/web_view"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/clear"/>
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <WebView
+                android:id="@+id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white" />
+
+        </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/clear">
+            android:background="@color/white">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:minHeight="?attr/actionBarSize"
                 app:contentScrim="@color/clear"
-                app:expandedTitleGravity="bottom|center_horizontal"
+                app:expandedTitleGravity="center"
                 app:expandedTitleMarginStart="@dimen/double_space"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -44,12 +52,15 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         android:background="@android:color/transparent">
 
-                        <ImageView
+                        <ProgressBar
+                            android:id="@+id/progress"
+                            android:visibility="gone"
                             android:layout_width="@dimen/icon"
                             android:layout_height="@dimen/icon"
                             android:layout_centerInParent="true"
-                            app:layout_collapseMode="pin"
-                            android:src="@drawable/privacy"/>
+                            android:indeterminate="true"
+                            style="?android:attr/progressBarStyleLarge"
+                            app:layout_collapseMode="parallax"/>
 
                     </RelativeLayout>
 

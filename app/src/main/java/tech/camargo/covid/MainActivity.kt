@@ -14,12 +14,7 @@ import androidx.databinding.DataBindingUtil
 import com.google.zxing.client.android.BeepManager
 import com.journeyapps.barcodescanner.DefaultDecoderFactory
 import org.koin.android.ext.android.inject
-import permissions.dispatcher.NeedsPermission
-import permissions.dispatcher.OnNeverAskAgain
-import permissions.dispatcher.OnPermissionDenied
-import permissions.dispatcher.OnShowRationale
-import permissions.dispatcher.RuntimePermissions
-import permissions.dispatcher.PermissionRequest
+import permissions.dispatcher.*
 import tech.camargo.covid.databinding.ActivityMainBinding
 import tech.camargo.covid.utils.Linter
 
@@ -88,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     @OnShowRationale(Manifest.permission.CAMERA)
     fun cameraRationale(request: PermissionRequest) {
         runOnUiThread {
-            AlertDialog.Builder(this, R.style.BottomDialogStyle).apply {
+            AlertDialog.Builder(this, R.style.AlertDialogStyle).apply {
                 setMessage(R.string.camera_permission_rationale)
                 setPositiveButton(R.string.ok) { _, _ -> request.proceed() }
                 setNegativeButton(R.string.cancel) { _, _ -> request.cancel() }
@@ -117,12 +112,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun phone(done: () -> Unit) {
-        val fragment = PhoneFragment.create { phone ->
+        val fragment = PhoneFragment.create({
+            initQRCamera()
+        }) { phone ->
             if (linter.lintPhone(phone)) {
                 persistent.cellphones = phone
                 done()
             } else {
                 showError(R.string.phone_wrong)
+                phone(done)
             }
         }
         fragment.show(supportFragmentManager, "1984")
@@ -147,7 +145,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showError(message: Int) {
         runOnUiThread {
-            AlertDialog.Builder(this, R.style.BottomDialogStyle).apply {
+            AlertDialog.Builder(this, R.style.AlertDialogStyle).apply {
                 setMessage(message)
                 setPositiveButton(getString(R.string.ok)) { _, _ -> }
                 show()

@@ -2,8 +2,11 @@ package tech.camargo.covid
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +29,11 @@ class ReaderActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         B.webView.webViewClient = object: WebViewClient() {
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                B.progress.visibility = View.VISIBLE
+            }
             override fun onPageFinished(view: WebView?, url: String?) {
+                B.progress.visibility = View.GONE
                 title = view?.title ?: title
             }
         }
@@ -49,6 +56,7 @@ class ReaderActivity : AppCompatActivity() {
             content != null -> constants.getURI(content)
             else -> null
         }
+        Log.v(TAG,"loading $content $uri")
         B.webView.loadUrl(uri)
     }
 
@@ -58,28 +66,28 @@ class ReaderActivity : AppCompatActivity() {
         const val ABOUT = "about"
         const val TERMS = "terms"
         const val PRIVACY = "privacy"
-        const val URL = "content"
+        const val URL = "url"
 
         fun withUrl(context: Context, url: String) {
-            context.startActivity(Intent(context, ResultActivity::class.java).apply {
+            context.startActivity(Intent(context, ReaderActivity::class.java).apply {
                 putExtra(URL, url)
             })
         }
 
         fun about(context: Context) {
-            context.startActivity(Intent(context, ResultActivity::class.java).apply {
+            context.startActivity(Intent(context, ReaderActivity::class.java).apply {
                 putExtra(CONTENT, ABOUT)
             })
         }
 
         fun terms(context: Context) {
-            context.startActivity(Intent(context, ResultActivity::class.java).apply {
+            context.startActivity(Intent(context, ReaderActivity::class.java).apply {
                 putExtra(CONTENT, TERMS)
             })
         }
 
         fun privacy(context: Context) {
-            context.startActivity(Intent(context, ResultActivity::class.java).apply {
+            context.startActivity(Intent(context, ReaderActivity::class.java).apply {
                 putExtra(CONTENT, PRIVACY)
             })
         }

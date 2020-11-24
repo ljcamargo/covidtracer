@@ -28,13 +28,14 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         B = DataBindingUtil.setContentView(this, R.layout.activity_result)
         setSupportActionBar(B.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar?.setHomeButtonEnabled(true)
         title = ""
         B.lifecycleOwner = this
         B.viewModel = M
         M.wait.observe(this) {
             if (it) visualState(loading = true, success = false)
+            invalidateOptionsMenu()
         }
         M.status.observe(this) {
             visualState(loading = false, success = it.success)
@@ -59,6 +60,11 @@ class ResultActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.result, menu)
+        return true
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        menu?.findItem(R.id.settings)?.isVisible = M.wait.value == false
         return true
     }
 
@@ -90,14 +96,19 @@ class ResultActivity : AppCompatActivity() {
             contentScrim = ColorDrawable(color)
             setStatusBarScrimColor(color)
         }
+        if (!loading && success) {
+            supportActionBar?.setHomeButtonEnabled(false)
+        }
     }
 
     fun restart(view: View) {
         MainActivity.start(this)
+        finish()
     }
 
     fun recent(view: View) {
         ListActivity.start(this)
+        finish()
     }
 
     fun end(view: View) {
@@ -106,7 +117,7 @@ class ResultActivity : AppCompatActivity() {
 
     private fun showErrorRetry() {
         runOnUiThread {
-            AlertDialog.Builder(this, R.style.BottomDialogStyle).apply {
+            AlertDialog.Builder(this, R.style.AlertDialogStyle).apply {
                 setMessage(R.string.conn_err)
                 setPositiveButton(getString(R.string.retry)) { _, _ -> submit() }
                 setPositiveButton(getString(R.string.cancel)) { _, _ -> }

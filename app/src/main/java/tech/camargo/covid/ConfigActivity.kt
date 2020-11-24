@@ -95,19 +95,9 @@ class ConfigActivity : AppCompatActivity() {
         ReaderActivity.terms(this)
     }
 
-    private fun done(message: Int) {
-        runOnUiThread {
-            AlertDialog.Builder(this, R.style.BottomDialogStyle).apply {
-                setMessage(message)
-                setPositiveButton(getString(R.string.ok)) { _, _ -> }
-                show()
-            }
-        }
-    }
-
     private fun showError(message: Int) {
         runOnUiThread {
-            AlertDialog.Builder(this, R.style.BottomDialogStyle).apply {
+            AlertDialog.Builder(this, R.style.AlertDialogStyle).apply {
                 setMessage(message)
                 setPositiveButton(getString(R.string.ok)) { _, _ -> }
                 show()

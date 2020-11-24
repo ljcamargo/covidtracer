@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string-array name="supported_code_formats">
         <item>QR_CODE</item>
     </string-array>
-    <string name="manual_code_regex">/[a-zA-Z]+/g</string>
+    <string name="manual_code_regex" tools:ignore="TypographyDashes">^\\d{10}$</string>
+    <string name="raw_phone_regex" tools:ignore="TypographyDashes">[0-9a-zA-Z]+</string>
+    <string name="qr_text_regex" tools:ignore="TypographyDashes">^http.+$</string>
+    <string name="privacy_uri">file:///android_asset/privacy.html</string>
+    <string name="terms_uri">file:///android_asset/terms.html</string>
+    <string name="about_uri">file:///android_asset/about.html</string>
 </resources>

@@ -4,6 +4,7 @@
     package="tech.camargo.covid">
 
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -26,6 +27,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidTracker">
+        <activity android:name=".ReaderActivity"></activity>
         <activity android:name=".ListActivity" />
         <activity android:name=".ConfigActivity" />
         <activity android:name=".ResultActivity" />

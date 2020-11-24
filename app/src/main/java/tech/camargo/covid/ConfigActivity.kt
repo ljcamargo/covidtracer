@@ -84,15 +84,15 @@ class ConfigActivity : AppCompatActivity() {
     }
 
     fun about(view: View) {
-        ListActivity.start(this)
+        ReaderActivity.about(this)
     }
 
     fun privacy(view: View) {
-        ListActivity.start(this)
+        ReaderActivity.privacy(this)
     }
 
     fun terms(view: View) {
-        ListActivity.start(this)
+        ReaderActivity.terms(this)
     }
 
     private fun done(message: Int) {

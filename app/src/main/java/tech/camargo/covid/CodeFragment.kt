@@ -1,5 +1,6 @@
 package tech.camargo.covid
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,8 +21,12 @@ class CodeFragment(val callback: ((String?)->Unit)): BottomSheetDialogFragment()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
         B = DataBindingUtil.inflate(inflater, R.layout.fragment_code, container, false)
-        B.privacy.setOnClickListener {  }
-        B.terms.setOnClickListener {  }
+        B.privacy.setOnClickListener {
+            ReaderActivity.privacy(this.activity as Activity)
+        }
+        B.terms.setOnClickListener {
+            ReaderActivity.terms(this.activity as Activity)
+        }
         B.agree.setOnClickListener {
             callback(B.code)
             dismiss()

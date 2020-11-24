@@ -26,14 +26,14 @@
     <string name="visit_register_err">An error occurred while registering. Try again!</string>
     <string name="done">Done!</string>
     <string name="error_q">Error!</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="qr_wrong">The QR is incorrect or doesn\'t belong to the system</string>
     <string name="phone_wrong">The cellphone number is empty or wrong</string>
     <string name="code_wrong">The code is empty or incorrect</string>
     <string name="conn_err">The request could not be completed, check your connection and try again!</string>
     <string name="camera_permission_rationale">The camera is necessary to read QR codes</string>
     <string name="cancel">Cancel</string>
-    <string name="sending">Sending...</string>
+    <string name="sending">Sending…</string>
     <string name="retry">Retry</string>
     <string name="enter_place_code">Enter the place code</string>
     <string name="enter_cellphone">Enter your cellphone</string>

@@ -45,6 +45,10 @@ class ResultActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
             R.id.settings -> {
                 ConfigActivity.start(this)
                 return true

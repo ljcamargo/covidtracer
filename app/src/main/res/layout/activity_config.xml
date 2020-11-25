@@ -140,7 +140,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/title"
-                        android:text="@string/recent_visits"/>
+                        android:text="@string/recent_attendances"/>
 
                 </LinearLayout>
 
@@ -164,7 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         style="@style/title"
-                        android:text="@string/clear_visit_list"/>
+                        android:text="@string/clear_attendance_list"/>
 
                 </LinearLayout>
 

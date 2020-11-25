@@ -28,16 +28,16 @@ class ResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         B = DataBindingUtil.setContentView(this, R.layout.activity_result)
         setSupportActionBar(B.toolbar)
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        //supportActionBar?.setHomeButtonEnabled(true)
         title = ""
         B.lifecycleOwner = this
         B.viewModel = M
         M.wait.observe(this) {
+            Log.v(TAG, "WAIT -> $it")
             if (it) visualState(loading = true, success = false)
             invalidateOptionsMenu()
         }
         M.status.observe(this) {
+            Log.v(TAG, "STATUS -> $it")
             visualState(loading = false, success = it.success)
             if (!it.success) showErrorRetry()
         }

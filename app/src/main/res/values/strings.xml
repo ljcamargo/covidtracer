@@ -9,21 +9,21 @@
     <string name="start_again">Start Again</string>
     <string name="exit">Exit</string>
     <string name="cellphone">Cellphone</string>
-    <string name="clear_visit_list">Clear Visit List</string>
+    <string name="clear_attendance_list">Clear Visit List</string>
     <string name="clear_all">Clear All</string>
     <string name="about">About</string>
     <string name="privacy">Privacy</string>
     <string name="terms">Terms</string>
     <string name="version">version</string>
-    <string name="recent_visits">Recent Visits</string>
-    <string name="new_visit">New Visit</string>
-    <string name="erase_visits">Erase Visits</string>
+    <string name="recent_attendances">Recent Visits</string>
+    <string name="new_attendance">New Visit</string>
+    <string name="erase_attendances">Erase Visits</string>
     <string name="add_phone">Add your cellphone</string>
     <string name="agreed">Add</string>
     <string name="code">Code</string>
     <string name="send">Send</string>
-    <string name="visit_did_register">The visit has been registered!</string>
-    <string name="visit_register_err">An error occurred while registering. Try again!</string>
+    <string name="attendance_did_register">The visit has been registered!</string>
+    <string name="attendance_register_err">An error occurred while registering. Try again!</string>
     <string name="done">Done!</string>
     <string name="error_q">Error!</string>
     <string name="ok">OK</string>
@@ -37,7 +37,7 @@
     <string name="retry">Retry</string>
     <string name="enter_place_code">Enter the place code</string>
     <string name="enter_cellphone">Enter your cellphone</string>
-    <string name="clear_visits_done">Visit list erased!</string>
+    <string name="clear_attendances_done">Visit list erased!</string>
     <string name="cleared_all">All setting cleared!</string>
     <string name="settings_saved">Settings saved!</string>
 </resources>

@@ -7,6 +7,6 @@
     <item
         android:id="@+id/erase_visits"
         app:showAsAction="never"
-        android:title="@string/erase_visits"/>
+        android:title="@string/erase_attendances"/>
 
 </menu>

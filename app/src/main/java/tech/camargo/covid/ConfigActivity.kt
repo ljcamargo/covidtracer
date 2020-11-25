@@ -71,7 +71,7 @@ class ConfigActivity : AppCompatActivity() {
 
     fun resetList(view: View) {
         persistent.resetList()
-        showDone(R.string.clear_visits_done)
+        showDone(R.string.clear_attendances_done)
     }
 
     fun reset(view: View) {

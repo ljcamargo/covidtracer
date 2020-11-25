@@ -1,32 +1,29 @@
 package tech.camargo.covid.network
 
-import androidx.lifecycle.MutableLiveData
 import io.ktor.client.*
+import io.ktor.client.features.cookies.*
 import io.ktor.client.request.*
+import io.ktor.client.request.forms.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
-import tech.camargo.covid.models.Attendance
 
 class AttendanceRepo(private val client : HttpClient) {
 
-    suspend fun getSubmissionSite(url: String): String {
+    suspend fun getSubmissionSite(url: String): HttpResponse {
+        client.cookies("medidassanitarias.covid19.cdmx.gob.mx")
         return client.request(url) {
             method = HttpMethod.Get
-            /*headers {
-                append("My-Custom-Header", "HeaderValue")
-            }*/
         }
     }
 
-    suspend fun submitAttendance(
-        map: Map<String, String>,
-        status : MutableLiveData<Result<Attendance>>
-    ) {
-        val url = ""
+    suspend fun submitAttendance(map: Map<String, String>): HttpResponse {
+        val url = "https://medidassanitarias.covid19.cdmx.gob.mx/registrar_ciudadano"
+        client.cookies("medidassanitarias.covid19.cdmx.gob.mx")
         return client.request(url) {
             method = HttpMethod.Post
-            /*headers {
-                append("My-Custom-Header", "HeaderValue")
-            }*/
+            body = FormDataContent(Parameters.build {
+                map.forEach { (key, value) -> append(key, value) }
+            })
         }
     }
 

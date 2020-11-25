@@ -27,7 +27,7 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         B = DataBindingUtil.setContentView(this, R.layout.activity_list)
         setSupportActionBar(B.toolbar)
-        title = getString(R.string.recent_visits)
+        title = getString(R.string.recent_attendances)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         adapter = Adapter(R.layout.item_attendance, BR.attendance, arrayListOf())
@@ -44,7 +44,7 @@ class ListActivity : AppCompatActivity() {
             }
             R.id.erase_visits -> {
                 persistent.resetList()
-                showDone(R.string.clear_visits_done)
+                showDone(R.string.clear_attendances_done)
                 load()
                 true
             }

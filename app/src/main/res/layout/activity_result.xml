@@ -141,14 +141,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/visit_did_register"/>
+                    android:text="@string/attendance_did_register"/>
 
                 <TextView
                     android:visibility="@{(!viewModel.status.success &amp;&amp; !viewModel.wait) ? View.VISIBLE:View.GONE}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/visit_register_err"/>
+                    android:text="@string/attendance_register_err"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -189,7 +189,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/space"
-                        android:text="@string/recent_visits"/>
+                        android:text="@string/recent_attendances"/>
 
                 </LinearLayout>
 

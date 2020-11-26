@@ -1,6 +1,6 @@
 # COVIDTracker
 
-[[Read in english]](https://github.com/ljcamargo/covidtracker/blob/main/README.md)
+[[Read in English]](https://github.com/ljcamargo/covidtracker/blob/main/README.md)
 
 Esta es una aplicación android de código abierto (open-source) para registrar asistencia a la entrada de establecimientos mediante códigos QR y número de celular para seguimiento de contactos y permitir a las autoridades contactar a visitantes que pudieran haber sido expuestos al COVID durante su visita.
 
@@ -46,7 +46,7 @@ Con fines demostrativos, esta app implementa una conexión no oficial con el sit
 * MVVC
 
 ## Errores y Retroalimentación
-Para reportar errores, retroalimentar o generar una discusión visita  [Github Issues](https://github.com/ljcamargo/covidtracker/issues).
+Para reportar errores, retroalimentar o generar una discusión visita [Github Issues](https://github.com/ljcamargo/covidtracker/issues).
 
 ## Licencia
 Licencia bajo términos de la Apache License, Version 2.0 (la "Licencia");
@@ -55,9 +55,13 @@ Puede obtener una copia de los términnos de la Licencia en:
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-Excepto por lo dispuesto por la ley local aplicable o aceptado por escrito por la autora o el autor, el software distribuido bajo términos de la Licencia se suministra “TAL CUAL” sin ninguna garantía de ninguna clase, explícita o implícita
+Excepto por lo dispuesto por la ley local aplicable o aceptado por 
+escrito por la autora o el autor, el software distribuido bajo términos 
+de la Licencia se suministra “TAL CUAL” sin ninguna garantía de ninguna 
+clase, explícita o implícita.
 
-Consulte la Licencia para conocer a detalle los permisos y limitaciones bajo términos de la Licencia
+Consulte la Licencia para conocer a detalle los permisos y limitaciones 
+bajo términos de la Licencia.
 
 ## Icons
 Íconos realizados por  <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a>, <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>, <a href="https://www.flaticon.com/authors/xnimrodx" title="xnimrodx">xnimrodx</a>, <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> desde <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CovidTracker</string>
+    <string name="version_code">versión %s</string>
+    <string name="no_code">Usar Código</string>
+    <string name="scan_again">Escanear QR</string>
+    <string name="save">Guardar</string>
+    <string name="settings">Preferencias</string>
+    <string name="start_again">Reiniciar</string>
+    <string name="exit">Salir</string>
+    <string name="cellphone">Celular</string>
+    <string name="clear_attendance_list">Borrar Lista de Visitas</string>
+    <string name="clear_all">Borrar Todo</string>
+    <string name="about">Acerca de</string>
+    <string name="privacy">Privacidad</string>
+    <string name="terms">Términos</string>
+    <string name="version">Versión</string>
+    <string name="recent_attendances">Visitas Recientes</string>
+    <string name="new_attendance">Nueva Visita</string>
+    <string name="erase_attendances">Borrar Visitas</string>
+    <string name="add_phone">Agregar teléfono</string>
+    <string name="agreed">Agregar</string>
+    <string name="code">Código</string>
+    <string name="send">Enviar</string>
+    <string name="attendance_did_register">¡Registro guardado exitosamente!</string>
+    <string name="attendance_register_err">Ocurrió un error enviando el registro</string>
+    <string name="done">¡Hecho!</string>
+    <string name="error_q">Errror</string>
+    <string name="ok">Entendido</string>
+    <string name="qr_wrong">El QR es incorrecto o no pertenece al sistema</string>
+    <string name="phone_wrong">El número de teléfono es incorrecto o está vacío</string>
+    <string name="code_wrong">El código es incorrecto o está vacío</string>
+    <string name="conn_err">La solicitud no se pudo realizar, verifica tu conexión e intenta de nuevo</string>
+    <string name="camera_permission_rationale">La cámara es necesaria para leer códigos QR</string>
+    <string name="cancel">Cancel</string>
+    <string name="sending">Enviando…</string>
+    <string name="retry">Reintentar</string>
+    <string name="enter_place_code">Introduce el código del lugar</string>
+    <string name="enter_cellphone">Introduce el teléfono celular</string>
+    <string name="clear_attendances_done">La lista de visitas ha sido borrada</string>
+    <string name="cleared_all">Los datos almancenados han sido borrados</string>
+    <string name="settings_saved">¡Preferencias han sido guardadas!</string>
+    <string name="privacy_uri">file:///android_asset/privacy_es.html</string>
+    <string name="terms_uri">file:///android_asset/terms_es.html</string>
+    <string name="about_uri">file:///android_asset/about_es.html</string>
+</resources>

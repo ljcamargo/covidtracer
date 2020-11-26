@@ -3,9 +3,9 @@
     <string-array name="supported_code_formats">
         <item>QR_CODE</item>
     </string-array>
-    <string name="raw_phone_regex" tools:ignore="TypographyDashes">^\\d{10}$</string>
-    <string name="manual_code_regex" tools:ignore="TypographyDashes">[0-9a-zA-Z]+</string>
-    <string name="qr_text_regex" tools:ignore="TypographyDashes">^http.+$</string>
+    <string name="raw_phone_regex" tools:ignore="TypographyDashes" translatable="false">^\\d{10}$</string>
+    <string name="manual_code_regex" tools:ignore="TypographyDashes" translatable="false">[0-9a-zA-Z]+</string>
+    <string name="qr_text_regex" tools:ignore="TypographyDashes" translatable="false">^http.+$</string>
     <string name="privacy_uri">file:///android_asset/privacy.html</string>
     <string name="terms_uri">file:///android_asset/terms.html</string>
     <string name="about_uri">file:///android_asset/about.html</string>

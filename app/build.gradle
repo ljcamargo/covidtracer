@@ -25,7 +25,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionCode code
-        versionName "0.0." + code
+        versionName "0.9." + code
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

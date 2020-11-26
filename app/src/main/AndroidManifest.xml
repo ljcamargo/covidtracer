@@ -17,6 +17,10 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+
 
     <application
         android:name=".Application"
@@ -27,7 +31,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidTracker">
-        <activity android:name=".ReaderActivity"></activity>
+        <activity android:name=".ReaderActivity" />
         <activity android:name=".ListActivity" />
         <activity android:name=".ConfigActivity" />
         <activity android:name=".ResultActivity" />

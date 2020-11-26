@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         B = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setSupportActionBar(B.toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false);
+        B.toolbar.setLogo(R.drawable.logo)
         initQRCameraWithPermissionCheck()
     }
 
@@ -51,7 +54,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.manual -> {
-                manual()
+                manualWithPermissionCheck()
                 true
             }
             R.id.settings -> {
@@ -82,21 +85,14 @@ class MainActivity : AppCompatActivity() {
 
     @OnShowRationale(Manifest.permission.CAMERA)
     fun cameraRationale(request: PermissionRequest) {
-        runOnUiThread {
-            AlertDialog.Builder(this, R.style.AlertDialogStyle).apply {
-                setMessage(R.string.camera_permission_rationale)
-                setPositiveButton(R.string.ok) { _, _ -> request.proceed() }
-                setNegativeButton(R.string.cancel) { _, _ -> request.cancel() }
-                show()
-            }
-        }
+        permissionRationale(request, R.string.camera_permission_rationale)
     }
 
     @OnPermissionDenied(Manifest.permission.CAMERA)
-    fun cameraDeniedOnce() { manual() }
+    fun cameraDeniedOnce() { manualWithPermissionCheck() }
 
     @OnNeverAskAgain(Manifest.permission.CAMERA)
-    fun cameraDeniedEver() { manual() }
+    fun cameraDeniedEver() { manualWithPermissionCheck() }
 
     private fun onQR(code: String) {
         if (persistent.firstTime) {
@@ -126,7 +122,8 @@ class MainActivity : AppCompatActivity() {
         fragment.show(supportFragmentManager, "1984")
     }
 
-    private fun manual() {
+    @NeedsPermission(Manifest.permission.SEND_SMS)
+    fun manual() {
         val fragment = CodeFragment.create { code ->
             if (linter.lintCode(code)) {
                 ResultActivity.startWithCode(this@MainActivity, code!!)
@@ -135,12 +132,37 @@ class MainActivity : AppCompatActivity() {
                 showError(R.string.code_wrong)
             }
         }
-        fragment.show(supportFragmentManager, "1985")
+        fragment.show(supportFragmentManager, FRAGMENT)
+    }
+
+    @OnShowRationale(Manifest.permission.SEND_SMS)
+    fun smsRationale(request: PermissionRequest) =
+        permissionRationale(request, R.string.sms_permissions_rationale)
+
+    @OnPermissionDenied(Manifest.permission.SEND_SMS)
+    fun smsDeniedOnce() {
+        Toast.makeText(this, R.string.sms_no_permission, Toast.LENGTH_LONG).show()
+    }
+
+    @OnNeverAskAgain(Manifest.permission.SEND_SMS)
+    fun smsEver() {
+        Toast.makeText(this, R.string.sms_no_permission, Toast.LENGTH_LONG).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
+    }
+
+    private fun permissionRationale(request: PermissionRequest, text: Int) {
+        runOnUiThread {
+            AlertDialog.Builder(this, R.style.AlertDialogStyle).apply {
+                setMessage(text)
+                setPositiveButton(R.string.ok) { _, _ -> request.proceed() }
+                setNegativeButton(R.string.cancel) { _, _ -> request.cancel() }
+                show()
+            }
+        }
     }
 
     private fun showError(message: Int) {
@@ -155,6 +177,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "MainActivity"
+        const val FRAGMENT ="1984"
         fun start(context: Context) {
             context.startActivity(Intent(context, MainActivity::class.java))
         }

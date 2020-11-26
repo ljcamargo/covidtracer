@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">COVIDTracer</string>
     <string name="version_code">versión %s</string>
-    <string name="no_code">Usar Código</string>
+    <string name="no_code">Usar Folio</string>
     <string name="scan_again">Escanear QR</string>
     <string name="save">Guardar</string>
     <string name="settings">Preferencias</string>
@@ -25,7 +25,7 @@
     <string name="attendance_did_register">¡Registro guardado exitosamente!</string>
     <string name="attendance_register_err">Ocurrió un error enviando el registro</string>
     <string name="done">¡Hecho!</string>
-    <string name="error_q">Errror</string>
+    <string name="error_q">Error</string>
     <string name="ok">Entendido</string>
     <string name="qr_wrong">El QR es incorrecto o no pertenece al sistema</string>
     <string name="phone_wrong">El número de teléfono es incorrecto o está vacío</string>
@@ -43,4 +43,6 @@
     <string name="privacy_uri">file:///android_asset/privacy_es.html</string>
     <string name="terms_uri">file:///android_asset/terms_es.html</string>
     <string name="about_uri">file:///android_asset/about_es.html</string>
+    <string name="sms_permissions_rationale">Los permisos para mensajes son necesarios para enviar el folio</string>
+    <string name="sms_no_permission">No es posible enviar el folio sin permisos para mensaje</string>
 </resources>

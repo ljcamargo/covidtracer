@@ -6,7 +6,10 @@
     <string name="raw_phone_regex" tools:ignore="TypographyDashes" translatable="false">^\\d{10}$</string>
     <string name="manual_code_regex" tools:ignore="TypographyDashes" translatable="false">[0-9a-zA-Z]+</string>
     <string name="qr_text_regex" tools:ignore="TypographyDashes" translatable="false">^http.+$</string>
+    <string name="sms_target" translatable="false">515151</string>
     <string name="privacy_uri">file:///android_asset/privacy.html</string>
     <string name="terms_uri">file:///android_asset/terms.html</string>
     <string name="about_uri">file:///android_asset/about.html</string>
+    <string name="cookies_url" translatable="false">medidassanitarias.covid19.cdmx.gob.mx</string>
+    <string name="register_url" translatable="false">https://medidassanitarias.covid19.cdmx.gob.mx/registrar_ciudadano</string>
 </resources>

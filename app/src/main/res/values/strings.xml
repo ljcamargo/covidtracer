@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CovidTracker</string>
+    <string name="app_name">COVIDTracer</string>
     <string name="version_code">version %s</string>
     <string name="preferences_name" translatable="false">tech.camargo.covid</string>
     <string name="no_code">Enter Code</string>

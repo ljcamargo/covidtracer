@@ -1,4 +1,4 @@
-# COVIDTracker
+# COVIDTracer
 [[Leer en Español]](https://github.com/ljcamargo/covidtracker/blob/main/README_es.md)
 This is an open-source white-label android app to check in to a venue using a QR code and cellphone number for COVID contact tracing and to allow authorities to contact visitors in case of a possible exposure.
 

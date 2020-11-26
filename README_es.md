@@ -1,4 +1,4 @@
-# COVIDTracker
+# COVIDTracer
 
 [[Read in English]](https://github.com/ljcamargo/covidtracker/blob/main/README.md)
 

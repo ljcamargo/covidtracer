@@ -1,0 +1,38 @@
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+  
+  lane :show_version do
+    version = get_version_name(app_project_dir: '**/app')
+    UI.message("Default: version name" + version + "#{ENV['VERSION_CODE'].to_i + 1}")
+    version_code = get_version_code(app_project_dir: '**/app')
+    UI.message("Default: version code" + version_code + "#{ENV['VERSION_CODE'].to_i + 1}")
+  end
+
+  lane :beta do
+    sh("find .. -type f -name '*.apk' -delete")
+    gradle(
+      task: "bundle",
+      build_type: "Release",
+      properties: {
+        "android.injected.signing.store.file" => ENV['ANDROID_STORE_FILE'],
+        "android.injected.signing.store.password" => ENV['ANDROID_STORE_PSW'],
+        "android.injected.signing.key.alias" => ENV['ANDROID_KEY_ALIAS'],
+        "android.injected.signing.key.password" => ENV['ANDROID_KEY_PSW'],
+      }
+    )
+    upload_to_play_store(
+        track: 'beta',
+        skip_upload_metadata: true,
+        skip_upload_images: true
+    )
+  end
+
+end

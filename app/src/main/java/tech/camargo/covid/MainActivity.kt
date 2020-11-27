@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         B = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setSupportActionBar(B.toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false);
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         B.toolbar.setLogo(R.drawable.logo)
         initQRCameraWithPermissionCheck()
     }

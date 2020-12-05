@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">COVIDTracer</string>
+    <string name="app_name">Registro QR CDMX</string>
     <string name="version_code">versión %s</string>
     <string name="no_code">Usar Folio</string>
     <string name="scan_again">Escanear QR</string>

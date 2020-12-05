@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+<div class="stackedit__html"><h1 id="covidtracker">COVIDTracer</h1>
+    <p>This is an open-source white-label android app to check in to a venue using a QR code and cellphone number for COVID contact tracing and to allow authorities to contact visitors in case of a possible exposure.</p>
+    <p>The aim of this white-label app is to be forked, ant then themed and customized by governments or localities according to their needs to speed up the website checkin process and to avoid long wait lines to enter places and to diminish COVID spread.</p>
+    <p>The process of the app is inspired and built upon the Attendance Record of the Government of Mexico City (CDMX) and was developed independently and unofficially.</p>
+    <h2 id="warning">Warning</h2>
+    <p>This app was developed independently and without relation to any government or institution.</p>
+    <p>For demonstration purposes, the app implements an unofficial connection to Mexico City Attende Record by simulating the manual process on the website and it may change and stop working any time. It’s not meant to be used as an official substitute for official mechanisms. Use for testing purposes and under your responsibility.</p>
+    <h2 id="how-it-works">How it works</h2>
+    <ul>
+        <li>Open the app</li>
+        <li>Scan the venue QR at the entrance</li>
+        <li>Receive the confirmation and show it to the clerk (when required)</li>
+    </ul>
+    <h2 id="features">Features</h2>
+    <ul>
+        <li>Assisted QR scanning (zxing)</li>
+        <li>Store your cell phone number just once to avoid dialing each time</li>
+        <li>Manual code alternative if the QR code is illegible or the camera is not available</li>
+        <li>Check for correct phone number, manual code and QR code.</li>
+        <li>List of recent attendances</li>
+        <li>Multilingual support (english and spanish)</li>
+    </ul>
+    <h2 id="steps-to-implement-your-own-app">Steps to implement your own app</h2>
+    <ol>
+        <li>Fork the project</li>
+        <li>Change hex color values</li>
+        <li>Change strings and translations</li>
+        <li>Change icons and other image assets</li>
+        <li>Change regex patterns to valide phone numbers and codes according to your locale or specification</li>
+        <li>Implement your repository and datasource to send qr scan codes.</li>
+        <li>Change privacy, terms and about template HTML files, you may also point to external website</li>
+        <li>Change app package name</li>
+        <li>Build and Deploy</li>
+    </ol>
+    <h2 id="tech-specs">Tech Specs</h2>
+    <ul>
+        <li>Kotlin 1.4+</li>
+        <li>Coroutines</li>
+        <li>Ktor</li>
+        <li>Koin (DI)</li>
+        <li>Material Design</li>
+        <li>MVVC</li>
+    </ul>
+    <h2 id="bugs-and-feedback">Bugs and Feedback</h2>
+    <p>For bugs, questions and discussions please use the <a href="https://github.com/ljcamargo/covidtracker/issues">Github Issues</a>.</p>
+    <h2 id="license">License</h2>
+    <p>Licensed under the Apache License, Version 2.0 (the “License”);<br>
+        you may not use this file except in compliance with the License.<br>
+        You may obtain a copy of the License at</p>
+    <p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+    <p>Unless required by applicable law or agreed to in writing, software<br>
+        distributed under the License is distributed on an “AS IS” BASIS,<br>
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,<br>
+        either express or implied.</p>
+    <p>See the License for the specific language governing permissions<br>
+        and limitations under the License.</p>
+    <h2 id="icons">Icons</h2>
+    <p>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a>, <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>, <a href="https://www.flaticon.com/authors/xnimrodx" title="xnimrodx">xnimrodx</a>, <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
+</div>
+</body>
+
+</html>

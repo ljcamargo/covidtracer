@@ -45,4 +45,5 @@
     <string name="about_uri">file:///android_asset/about_es.html</string>
     <string name="sms_permissions_rationale">Los permisos para mensajes son necesarios para enviar el folio</string>
     <string name="sms_no_permission">No es posible enviar el folio sin permisos para mensaje</string>
+    <string name="sms">SMS</string>
 </resources>

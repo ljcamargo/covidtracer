@@ -14,4 +14,9 @@
         app:showAsAction="always"
         android:title="@string/no_code"/>
 
+    <item
+        android:id="@+id/sms"
+        app:showAsAction="always"
+        android:title="@string/sms"/>
+
 </menu>

@@ -51,10 +51,26 @@ class MainActivity : AppCompatActivity() {
         return B.barcodeScanner.onKeyDown(code, event) || super.onKeyDown(code, event)
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        when (constants.alternateMethod()) {
+            Constants.AlternateMethod.SMS_AUTO -> menu?.findItem(R.id.manual)?.isVisible = true
+            Constants.AlternateMethod.SMS_INTENT -> menu?.findItem(R.id.sms)?.isVisible = true
+            Constants.AlternateMethod.NONE -> {
+                menu?.findItem(R.id.manual)?.isVisible = false
+                menu?.findItem(R.id.sms)?.isVisible = false
+            }
+        }
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.manual -> {
-                manualWithPermissionCheck()
+                manualCodeWithPermissionCheck()
+                true
+            }
+            R.id.sms -> {
+                smsIntent()
                 true
             }
             R.id.settings -> {
@@ -89,10 +105,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     @OnPermissionDenied(Manifest.permission.CAMERA)
-    fun cameraDeniedOnce() { manualWithPermissionCheck() }
+    fun cameraDeniedOnce() { manualCodeWithPermissionCheck() }
 
     @OnNeverAskAgain(Manifest.permission.CAMERA)
-    fun cameraDeniedEver() { manualWithPermissionCheck() }
+    fun cameraDeniedEver() { manualCodeWithPermissionCheck() }
 
     private fun onQR(code: String) {
         if (persistent.firstTime) {
@@ -122,8 +138,26 @@ class MainActivity : AppCompatActivity() {
         fragment.show(supportFragmentManager, "1984")
     }
 
+    private fun smsIntent() {
+        val address = constants.smsTarget()
+        val fragment = CodeFragment.create { code ->
+            if (linter.lintCode(code)) {
+                Intent(Intent.ACTION_VIEW).apply {
+                    type = "vnd.android-dir/mms-sms"
+                    putExtra("address", address)
+                    putExtra("sms_body", code)
+                    startActivity(this)
+                }
+                finish()
+            } else {
+                showError(R.string.code_wrong)
+            }
+        }
+        fragment.show(supportFragmentManager, FRAGMENT)
+    }
+
     @NeedsPermission(Manifest.permission.SEND_SMS)
-    fun manual() {
+    fun manualCode() {
         val fragment = CodeFragment.create { code ->
             if (linter.lintCode(code)) {
                 ResultActivity.startWithCode(this@MainActivity, code!!)

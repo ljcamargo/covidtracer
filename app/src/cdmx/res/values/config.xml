@@ -6,7 +6,7 @@
     <string name="raw_phone_regex" tools:ignore="TypographyDashes" translatable="false">^\\d{10}$</string>
     <string name="manual_code_regex" tools:ignore="TypographyDashes" translatable="false">[0-9a-zA-Z]+</string>
     <string name="qr_text_regex" tools:ignore="TypographyDashes" translatable="false">^http.+$</string>
-    <string name="alternate_method" translatable="false">SMS_AUTO</string>
+    <string name="alternate_method" translatable="false">SMS_INTENT</string>
     <string name="sms_target" translatable="false">51515</string>
     <string name="privacy_uri">file:///android_asset/privacy.html</string>
     <string name="terms_uri">file:///android_asset/terms.html</string>

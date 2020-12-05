@@ -48,6 +48,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    flavorDimensions 'client'
+    productFlavors {
+        cdmx {
+            dimension 'client'
+            applicationId 'org.covrisk.cdmx'
+        }
+        base {
+            dimension 'client'
+        }
+    }
 }
 
 dependencies {

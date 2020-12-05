@@ -7,6 +7,11 @@ import org.koin.core.KoinComponent
 
 class Constants(val context: Context): KoinComponent {
 
+    fun alternateMethod(): AlternateMethod {
+        val id = context.getString(R.string.alternate_method)
+        return AlternateMethod.valueOf(id)
+    }
+
     fun phonePattern() = pattern(R.string.raw_phone_regex)
     fun codePattern() = pattern(R.string.manual_code_regex)
     fun qrTextPattern() = pattern(R.string.qr_text_regex)
@@ -36,6 +41,10 @@ class Constants(val context: Context): KoinComponent {
         } else {
             null
         }
+    }
+
+    enum class AlternateMethod {
+        SMS_AUTO, SMS_INTENT, NONE
     }
 
 }

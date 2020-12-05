@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">COVIDTracer</string>
+    <string name="app_name">CDMX QR Tracer</string>
     <string name="version_code">version %s</string>
-    <string name="preferences_name" translatable="false">tech.camargo.covid</string>
+    <string name="preferences_name" translatable="false">org.covrisk.cdmx</string>
     <string name="no_code">Enter Code</string>
     <string name="scan_again">Scan Again</string>
     <string name="save">Save</string>
